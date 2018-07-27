@@ -1,0 +1,6 @@
+framework module Pods_FacebookGraphAPIUITests {
+  umbrella header "Pods-FacebookGraphAPIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

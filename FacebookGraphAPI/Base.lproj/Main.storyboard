@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4Y-Ty-Ztj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,94 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FacebookGraphAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-PG-nso">
+                                <rect key="frame" x="124" y="350.5" width="126" height="30"/>
+                                <state key="normal" title="Login to Facebook"/>
+                                <connections>
+                                    <action selector="loginButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EH0-0h-JJj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zDO-PG-nso" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Orj-eI-OFf"/>
+                            <constraint firstItem="zDO-PG-nso" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qfD-OZ-OMF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QO4-PW-fll"/>
+                    <connections>
+                        <segue destination="LHH-of-d9u" kind="show" identifier="pushGetUserInfo" id="st8-7M-D3e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="570" y="-681"/>
+        </scene>
+        <!--Get User Info View Controller-->
+        <scene sceneID="dnx-jz-GG8">
+            <objects>
+                <viewController id="LHH-of-d9u" customClass="GetUserInfoViewController" customModule="FacebookGraphAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZJ7-ro-QLR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvv-z0-Zz2">
+                                <rect key="frame" x="141.5" y="144" width="91" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Get User Info"/>
+                                <connections>
+                                    <action selector="getUserInfoButtonTouched:" destination="LHH-of-d9u" eventType="touchUpInside" id="lxw-rg-S91"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-Ob-TA8">
+                                <rect key="frame" x="61" y="252" width="266" height="31"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="y0x-Ep-v3I" firstAttribute="trailing" secondItem="TD3-Ob-TA8" secondAttribute="trailing" constant="48" id="0gX-jS-Hh5"/>
+                            <constraint firstItem="Nvv-z0-Zz2" firstAttribute="centerX" secondItem="y0x-Ep-v3I" secondAttribute="centerX" id="GH9-f8-FRB"/>
+                            <constraint firstItem="TD3-Ob-TA8" firstAttribute="top" secondItem="Nvv-z0-Zz2" secondAttribute="bottom" constant="78" id="HnA-yn-Asr"/>
+                            <constraint firstItem="Nvv-z0-Zz2" firstAttribute="top" secondItem="y0x-Ep-v3I" secondAttribute="top" constant="80" id="yL7-V8-HZM"/>
+                            <constraint firstItem="TD3-Ob-TA8" firstAttribute="leading" secondItem="y0x-Ep-v3I" secondAttribute="leading" constant="61" id="yME-xi-mdL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y0x-Ep-v3I"/>
+                    </view>
+                    <connections>
+                        <outlet property="userInfoLabel" destination="TD3-Ob-TA8" id="YLt-RF-8id"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNF-53-dXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1277.5999999999999" y="-681.40929535232385"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T27-wB-VfQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g4Y-Ty-Ztj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YG9-b8-0qM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="G3C-3N-5xE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNE-iz-1bE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-218" y="-681"/>
         </scene>
     </scenes>
 </document>
